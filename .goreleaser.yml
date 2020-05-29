@@ -24,6 +24,9 @@ builds:
     - goos: openbsd
       goarch: arm
       goarm: 6
+    - goos: netbsd
+      goarch: arm
+      goarm: 6
   # hooks:
     # Please install upx first, https://github.com/upx/upx/releases
     # post: compress.bat
@@ -38,8 +41,8 @@ changelog:
       - '^tests'
       - Merge pull request
       - Merge branch
-archive:
-  name_template: '{{ .ProjectName }}_{{ .Version }}_{{ .Os }}_{{ .Arch }}{{ if .Arm }}_v{{ .Arm }}{{ end }}'
+archives:
+- name_template: '{{ .ProjectName }}_{{ .Version }}_{{ .Os }}_{{ .Arch }}{{ if .Arm }}_v{{ .Arm }}{{ end }}'
   format: tar.gz
   format_overrides:
     - goos: windows
